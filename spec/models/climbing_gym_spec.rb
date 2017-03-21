@@ -5,8 +5,9 @@ RSpec.describe ClimbingGym do
               :gym_2
 
   before :each do
-    @gym_1 = ClimbingGym.create(name: "My Test Gym", city: "Golden", state: "CO", owned_by: "Joshy Thompson")
-    @gym_2 = ClimbingGym.create(name: "Other Test Gym", city: "Golden", state: "CO", owned_by: "Joshy Thompson")
+    Owner.create(name: "Katrina Papa")
+    @gym_1 = ClimbingGym.create(name: "My Test Gym", city: "Golden", state: "CO", owner_id: 1)
+    @gym_2 = ClimbingGym.create(name: "Other Test Gym", city: "Golden", state: "CO", owner_id: 1)
   end
 
   describe "#validations" do
@@ -18,16 +19,16 @@ RSpec.describe ClimbingGym do
       expect(gym_1).to respond_to(:owner_id)
     end
 
-    xit "should be valid with name and owned_by" do
-      expect(ClimbingGym.create(name: "test gym", owned_by: "Joshy Thompson")).to be_valid
+    it "should be valid with name and owner_id" do
+      expect(ClimbingGym.create(name: "test gym", owner_id: 1)).to be_valid
     end
 
-    xit "should not be valid with name missing" do
+    it "should not be valid with name missing" do
       expect(ClimbingGym.create(name: "")).not_to be_valid
     end
 
-    xit "should not be valid with owned_by missing" do
-      expect(ClimbingGym.create(name: "test gym", owned_by: "")).to_not be_valid
+    it "should not be valid with owner_id missing" do
+      expect(ClimbingGym.create(name: "test gym", owner_id: "")).to_not be_valid
     end
   end
 
@@ -39,27 +40,27 @@ RSpec.describe ClimbingGym do
     end
   end
 
-  describe  "#name" do
+  xdescribe  "#name" do
     it "returns name of a climbing gym" do
       expect(ClimbingGym.first.name).to eq("My Test Gym")
       expect(ClimbingGym.first).to be_kind_of(ClimbingGym)
     end
   end
 
-  describe "self" do
+  xdescribe "self" do
     it "exists and can be ClimbingGym class AND array" do
       expect(ClimbingGym.all.first).to be_kind_of(ClimbingGym)
       expect(ClimbingGym.all.to_a).to be_kind_of(Array)
     end
   end
 
-  describe "#scream_a_word" do
+  xdescribe "#scream_a_word" do
     it "returns word as SCREAM" do
       expect(ClimbingGym.first.scream_word("hello")).to eq("HELLO")
     end
   end
 
-  describe "#double_that_shit" do
+  xdescribe "#double_that_shit" do
     it "doubles ClimbingGym count" do
       expect(ClimbingGym.double_that_shit).to eq(4)
     end

@@ -3,7 +3,7 @@ require 'pry'
 class ClimbingGym < ActiveRecord::Base
 
   validates :name, :presence => true
-  validates :owned_by, :presence => true
+  validates :owner_id, :presence => true
 
   def scream_word(word)
     word.upcase
