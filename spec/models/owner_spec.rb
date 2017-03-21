@@ -19,7 +19,8 @@ RSpec.describe Owner do
     end
 
     it "should have several gyms" do
-      expect(Owner.climbing_gyms).to eq(2)
+      expect(owner_1.climbing_gyms.count).to eq(2)
+      expect(owner_1.climbing_gyms.first.name).to eq("My Test Gym")
     end
 
   end
