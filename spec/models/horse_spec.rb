@@ -21,7 +21,7 @@ RSpec.describe Horse do
     it "is invalid without a name" do
       horse = Horse.new(age: 22, total_winnings: 33)
 
-      expect (horse).to_not be_valid
+      expect(horse).to_not be_valid
     end
 
     it "should be valid with a name" do
