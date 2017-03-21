@@ -32,7 +32,14 @@ RSpec.describe ClimbingGym do
     end
   end
 
-  xdescribe "#count" do
+  describe "relationships" do
+    it "should have owner name" do
+      expect(gym_1.owner).to respond_to(:name)
+      expect(gym_1.owner.name).to eq("Katrina Papa")
+    end
+  end
+
+  describe "#count" do
     it "returns count of all climbing gyms" do
       expect(ClimbingGym.count).to eq(2)
       expect(ClimbingGym.count).to be <= 2
@@ -40,27 +47,27 @@ RSpec.describe ClimbingGym do
     end
   end
 
-  xdescribe  "#name" do
+  describe  "#name" do
     it "returns name of a climbing gym" do
       expect(ClimbingGym.first.name).to eq("My Test Gym")
       expect(ClimbingGym.first).to be_kind_of(ClimbingGym)
     end
   end
 
-  xdescribe "self" do
+  describe "self" do
     it "exists and can be ClimbingGym class AND array" do
       expect(ClimbingGym.all.first).to be_kind_of(ClimbingGym)
       expect(ClimbingGym.all.to_a).to be_kind_of(Array)
     end
   end
 
-  xdescribe "#scream_a_word" do
+  describe "#scream_a_word" do
     it "returns word as SCREAM" do
       expect(ClimbingGym.first.scream_word("hello")).to eq("HELLO")
     end
   end
 
-  xdescribe "#double_that_shit" do
+  describe "#double_that_shit" do
     it "doubles ClimbingGym count" do
       expect(ClimbingGym.double_that_shit).to eq(4)
     end

@@ -4,16 +4,22 @@ RSpec.describe Owner do
   attr_reader :owner_1
 
   before :each do
-    @owner_1 = Owner.create(name: "Katrina Papavasilliou")
+    @owner_1 = Owner.create(name: "Katrina Papa")
+    ClimbingGym.create(name: "My Test Gym", city: "Golden", state: "CO", owner_id: 1)
+    ClimbingGym.create(name: "Other Test Gym", city: "Golden", state: "CO", owner_id: 1)
   end
 
   describe "Owner" do
     it "should have a name" do
-      expect(owner_1.name).to eq("Katrina Papavasilliou")
+      expect(owner_1.name).to eq("Katrina Papa")
     end
 
     it "should be invalid without a name" do
       expect(Owner.create(name: "")).to_not be_valid
+    end
+
+    it "should have several gyms" do
+      expect(Owner.climbing_gyms).to eq(2)
     end
 
   end

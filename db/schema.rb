@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321042447) do
+ActiveRecord::Schema.define(version: 20170321044840) do
 
   create_table "climbing_gyms", force: :cascade do |t|
     t.text "name"

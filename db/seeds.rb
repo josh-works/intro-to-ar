@@ -1,16 +1,32 @@
-require './app/models/climbing_gym.rb'
+require './app/models/climbing_gym'
+require './app/models/owner'
+
+Owner.destroy_all
+ClimbingGym.destroy_all
+
+owners = [
+  {name: "Katrina"},
+  {name: "Chris Warner"},
+  {name: "Julie Liu"}
+]
 
 climbing_gyms = [
-  {name: "Earth Treks Rockville", city: "Rockville", state: "MD", owned_by: "Chris Warner"},
-  {name: "Earth Treks Columbia", city: "Columbia", state: "MD", owned_by: "Chris Warner"},
-  {name: "Earth Treks Golden", city: "Golden", state: "CO", owned_by: "Chris Warner"},
-  {name: "Earth Treks Crystal City", city: "Crystal City", state: "VA", owned_by: "Chris Warner"},
-  {name: "Earth Treks Timonium", city: "Timonium", state: "MD", owned_by: "Chris Warner"},
-  {name: "Sport Rock Sterling", city: "Sterling", state: "VA", owned_by: "Julie Liu"},
-  {name: "Sport Rock Alexandria", city: "Alexandria", state: "VA", owned_by: "Julie Liu"},
-  {name: "Movement Denver", city: "Denver", state: "CO", owned_by: "Random Dude"},
-  {name: "Movement Boulder", city: "Boulder", state: "CO", owned_by: "Random Dude"},
+  {name: "Earth Treks Rockville", city: "Rockville", state: "MD", owner_id: 2},
+  {name: "Earth Treks Columbia", city: "Columbia", state: "MD", owner_id: 2},
+  {name: "Earth Treks Golden", city: "Golden", state: "CO", owner_id: 2},
+  {name: "Earth Treks Crystal City", city: "Crystal City", state: "VA", owner_id: 2},
+  {name: "Earth Treks Timonium", city: "Timonium", state: "MD", owner_id: 2},
+  {name: "Sport Rock Sterling", city: "Sterling", state: "VA", owner_id: 3},
+  {name: "Sport Rock Alexandria", city: "Alexandria", state: "VA", owner_id: 3},
+  {name: "Movement Denver", city: "Denver", state: "CO", owner_id: 1},
+  {name: "Movement Boulder", city: "Boulder", state: "CO", owner_id: 1},
 ]
+
+owners.each do |owner|
+  puts "creating owner: #{owner[:name]}"
+  Owner.create!(owner)
+end
+
 
 climbing_gyms.each do |gym|
   puts "Creating climbing gym: #{gym[:name]}"
