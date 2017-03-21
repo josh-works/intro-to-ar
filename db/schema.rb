@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320162933) do
+ActiveRecord::Schema.define(version: 20170321041440) do
 
   create_table "climbing_gyms", force: :cascade do |t|
     t.text "name"
     t.text "city"
     t.text "state"
     t.text "owned_by"
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.text "name"
   end
 
 end

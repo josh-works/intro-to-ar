@@ -14,8 +14,8 @@ RSpec.describe ClimbingGym do
       expect(gym_1).to respond_to(:name)
     end
 
-    it "should respond to owned_by" do
-      expect(gym_1).to respond_to(:owned_by)
+    it "should respond to owner_id" do
+      expect(gym_1).to respond_to(:owner_id)
     end
 
     xit "should be valid with name and owned_by" do
