@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321044840) do
+ActiveRecord::Schema.define(version: 20170321141511) do
+
+  create_table "cities", force: :cascade do |t|
+    t.text "name"
+    t.text "state"
+  end
 
   create_table "climbing_gyms", force: :cascade do |t|
     t.text "name"
-    t.text "city"
-    t.text "state"
+    t.text "city_id"
     t.text "owner_id"
   end
 

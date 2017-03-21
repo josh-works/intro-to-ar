@@ -6,11 +6,12 @@ RSpec.describe ClimbingGym do
 
   before :each do
     Owner.create(name: "Katrina Papa")
-    @gym_1 = ClimbingGym.create(name: "My Test Gym", city: "Golden", state: "CO", owner_id: 1)
-    @gym_2 = ClimbingGym.create(name: "Other Test Gym", city: "Golden", state: "CO", owner_id: 1)
+    City.create(name: "Denver", state: "CO")
+    @gym_1 = ClimbingGym.create(name: "My Test Gym", city_id: 1, owner_id: 1)
+    @gym_2 = ClimbingGym.create(name: "Other Test Gym", city_id: 1, owner_id: 1)
   end
 
-  describe "#validations" do
+  xdescribe "#validations" do
     it "should respond to name" do
       expect(gym_1).to respond_to(:name)
     end
@@ -37,9 +38,18 @@ RSpec.describe ClimbingGym do
       expect(gym_1.owner).to respond_to(:name)
       expect(gym_1.owner.name).to eq("Katrina Papa")
     end
+
+    it "should have city name" do
+      expect(gym_1.city).to respond_to(:name)
+      expect(gym_1.city.name).to eq("Denver")
+    end
+
+    it "should know its state" do
+      expect(gym_1.city.state).to eq("CO")
+    end
   end
 
-  describe "#count" do
+  xdescribe "#count" do
     it "returns count of all climbing gyms" do
       expect(ClimbingGym.count).to eq(2)
       expect(ClimbingGym.count).to be <= 2

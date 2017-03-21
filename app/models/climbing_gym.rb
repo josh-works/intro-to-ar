@@ -3,6 +3,7 @@ require 'pry'
 class ClimbingGym < ActiveRecord::Base
 
   belongs_to :owner
+  belongs_to :city
 
   validates :name, :presence => true
   validates :owner_id, :presence => true
