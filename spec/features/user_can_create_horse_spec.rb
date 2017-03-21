@@ -1,7 +1,7 @@
 require_relative "../spec_helper"
 
 RSpec.describe "as a user tries to create a horse" do
-  it "they can create a new horse" do
+  xit "they can create a new horse" do
 
     # as a user, when I visit '/horses/new'
     visit '/horses/new'
